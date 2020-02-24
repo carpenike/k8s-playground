@@ -25,6 +25,8 @@ subcomponents:
         enabled: true
         storageClass: nfs
         storage: 10Gi
+      tests:
+        enabled: false
 
   vault:
     namespace: kube-system
