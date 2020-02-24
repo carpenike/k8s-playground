@@ -6,7 +6,7 @@ metadata:
     app.kubernetes.io/instance: sonarr
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/name: sonarr
-    helm.sh/chart: sonarr-3.0.1
+    helm.sh/chart: sonarr-3.0.2
   name: sonarr-config
   namespace: default
 spec:
@@ -25,7 +25,7 @@ metadata:
     app.kubernetes.io/instance: sonarr
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/name: sonarr
-    helm.sh/chart: sonarr-3.0.1
+    helm.sh/chart: sonarr-3.0.2
   name: sonarr
   namespace: default
 spec:
@@ -47,11 +47,12 @@ metadata:
     app.kubernetes.io/instance: sonarr
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/name: sonarr
-    helm.sh/chart: sonarr-3.0.1
+    helm.sh/chart: sonarr-3.0.2
   name: sonarr
   namespace: default
 spec:
   replicas: 1
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app.kubernetes.io/instance: sonarr
@@ -124,7 +125,7 @@ metadata:
     app.kubernetes.io/instance: sonarr
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/name: sonarr
-    helm.sh/chart: sonarr-3.0.1
+    helm.sh/chart: sonarr-3.0.2
   name: sonarr
   namespace: default
 spec:
@@ -140,3 +141,4 @@ spec:
   - hosts:
     - sonarr.$DOMAIN
     secretName: null
+

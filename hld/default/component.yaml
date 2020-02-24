@@ -1,4 +1,4 @@
-name: default-namespace
+name: namespace
 type: static
 path: "./manifests"
 subcomponents:
@@ -8,7 +8,3 @@ subcomponents:
     source: "https://billimek.com/billimek-charts/" # url of helm repo the chart resides
     path: "sonarr" # name of chart in helm repository
 
-  - name: sealed-secrets
-    type: static
-    source: https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.9.7/controller.yaml
-    method: http

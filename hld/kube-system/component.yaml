@@ -1,9 +1,28 @@
-name: kube-system-namespace
+name: namespace
 type: static
 path: "./manifests"
 subcomponents:
+  - name: consul
+    type: helm
+    method: git 
+    source: https://github.com/hashicorp/consul-helm
+    path: .
+    branch: v0.16.2
+
+  - name: vault
+    type: helm
+    method: git
+    source: https://github.com/hashicorp/vault-helm
+    path: .
+    branch: v0.3.3
+
   - name: nfs-server-provisioner
-    type: "helm"
-    method: "helm" # fetch the `source` via `helm fetch`
-    source: "https://kubernetes-charts.storage.googleapis.com" # url of helm repo the chart resides
-    path: "nfs-server-provisioner" # name of chart in helm repository
+    type: helm
+    method: helm # fetch the `source` via `helm fetch`
+    source: https://kubernetes-charts.storage.googleapis.com # url of helm repo the chart resides
+    path: nfs-server-provisioner # name of chart in helm repository
+
+  - name: sealed-secrets
+    type: static
+    source: https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.9.7/controller.yaml
+    method: http
