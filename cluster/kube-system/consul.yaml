@@ -347,41 +347,6 @@ spec:
         name: config
 
 ---
-apiVersion: v1
-kind: Pod
-metadata:
-  annotations:
-    helm.sh/hook: test-success
-  labels:
-    app: consul
-    chart: consul-helm
-    heritage: Tiller
-    release: consul
-  name: consul-consul-test
-  namespace: kube-system
-spec:
-  containers:
-  - command:
-    - /bin/sh
-    - -ec
-    - |
-      export VALUE="consul"
-      consul kv delete _consul_helm_test
-      consul kv put _consul_helm_test $VALUE
-      [ `consul kv get _consul_helm_test` = "$VALUE" ]
-      consul kv delete _consul_helm_test
-    env:
-    - name: HOST_IP
-      valueFrom:
-        fieldRef:
-          fieldPath: status.hostIP
-    - name: CONSUL_HTTP_ADDR
-      value: http://$(HOST_IP):8500
-    image: consul:1.6.2
-    name: consul-test
-  restartPolicy: Never
-
----
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
