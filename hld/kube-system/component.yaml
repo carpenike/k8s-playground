@@ -2,6 +2,9 @@ name: namespace
 type: static
 path: "./manifests"
 subcomponents:
+  - name: nfs-server-provisioner-pv
+    type: static
+    path: "./manifests"
   - name: consul
     type: helm
     method: git 

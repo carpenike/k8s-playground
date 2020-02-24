@@ -190,12 +190,6 @@ spec:
           periodSeconds: 3
           successThreshold: 1
           timeoutSeconds: 5
-        resources:
-          limits:
-            memory: 256Mi
-          requests:
-            cpu: 250m
-            memory: 256Mi
         securityContext:
           capabilities:
             add:
