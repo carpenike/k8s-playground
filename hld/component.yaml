@@ -6,3 +6,6 @@ subcomponents:
   - name: kube-system
     type: component
     source: "./kube-system"
+  - name: persistentVolumes
+    type: component
+    source: "./PVs"
