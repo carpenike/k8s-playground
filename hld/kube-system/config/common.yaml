@@ -48,3 +48,19 @@ subcomponents:
               path = "vault"
               address = "HOST_IP:8500"
             }
+  vault-secrets-operator:
+    namespace: kube-system
+    injectNamespace: true
+    config:
+      # image:
+      #   repository: ricoberger/vault-secrets-operator
+      #   tag: 1.2.3
+      replicaCount: 1
+      deploymentStrategy:
+        type: Recreate
+      vault:
+        address: "http://vault:8200"
+        authMethod: kubernetes
+        kubernetesPath: auth/kubernetes
+        kubernetesRole: vault-secrets-operator
+        reconciliationTime: "300"
